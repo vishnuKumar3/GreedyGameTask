@@ -25,7 +25,7 @@ export default function Analytics() {
                     addColumnsToAnalytics(storedAnalyticsData[0])
                 }
                 else {
-                    let resAnalyticsData = await axios.get("http://go-dev.greedygame.com/v3/dummy/report?startDate=2021-06-01&endDate=2021-06-30")
+                    let resAnalyticsData = await axios.get("https://go-dev.greedygame.com/v3/dummy/report?startDate=2021-06-01&endDate=2021-06-30")
                     console.log(resAnalyticsData.data.data)
                     dispatch(addAnalyticsData(resAnalyticsData.data.data))
                     addColumnsToAnalytics(resAnalyticsData.data.data)
@@ -109,7 +109,7 @@ export default function Analytics() {
             setAppData(storedAppData[0])
         }
         else {
-            let resAppData = await axios.get("http://go-dev.greedygame.com/v3/dummy/apps")
+            let resAppData = await axios.get("https://go-dev.greedygame.com/v3/dummy/apps")
             console.log(resAppData.data.data)
             res = {}
             resAppData.data.data.map((app) => {
