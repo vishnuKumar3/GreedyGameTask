@@ -15,4 +15,4 @@
 <h3>Home Page</h3>
 <img src="readmeFiles/Home.png">
 <h3>Analytics Page</h3>
-<img src="readmeFiles/Analytics.png">
+<img src="readmeFiles/AnalyticsPage.png">
