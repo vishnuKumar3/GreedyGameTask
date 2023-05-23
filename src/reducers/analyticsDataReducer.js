@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 
+{/*This reducer is used to store the analytics data i.e, company reports */ }
 const AnalyticsDataReducer = createSlice({
     name: "AnalyticsReducer",
     initialState: [],

@@ -5,6 +5,8 @@ import storage from "redux-persist/lib/storage"
 import { combineReducers } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 
+{/*Here we used persist reducer to store the data persistently i.e, we don't loss the data even if we refresh the page 
+and this helps us to prevent from multiple api calls */}
 const persistConfig = {
     key: "root",
     version: 1,

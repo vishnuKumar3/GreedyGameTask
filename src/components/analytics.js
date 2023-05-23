@@ -11,11 +11,17 @@ export default function Analytics() {
     const storedAnalyticsData = useSelector((state) => { return state.analytics })
     const storedAppData = useSelector((state) => { return state.appData })
 
+    {/*Below hook is used to store the temporary data and it'll help us while filtration */ }
     const [renderedAnalyticsData, setRenderedAnalyticsData] = useState([])
+    {/*below hook is used to store the total data */ }
     const [analyticsData, setAnalyticsData] = useState([])
+    {/*Below hooks is used to store the app and their id's */ }
     const [appData, setAppData] = useState([])
+    {/*Below hook is used to store all the columns of tha table */ }
     const [columns, setColumns] = useState({})
+    {/*Below hook is used to store the columns of table and is used at the time of reordering of table columns */ }
     const [columnsOrder, setColumnsOrder] = useState([])
+    {/*below variable shows the extra columns which we need to show in the table apart from the data fetched from api */ }
     const extra_columns = ["app", "fill_rate", "CTR"]
 
     useEffect(() => {
@@ -39,6 +45,7 @@ export default function Analytics() {
         loadData()
     }, [])
 
+    {/*Below function is to hide columns based on the column name*/ }
     const hideColumn = (event, colName) => {
         let columnData = { ...columns };
         columnData[colName]["hidden"] = !columnData[colName]["hidden"]
@@ -51,6 +58,7 @@ export default function Analytics() {
         setColumns(columnData)
     }
 
+    {/*Below function is used to sort the table based on columns previous state */ }
     const sortByColumn = (event) => {
         const columnName = event.target.nextElementSibling.innerHTML;
         let tableData = JSON.parse(JSON.stringify(analyticsData))
@@ -98,6 +106,7 @@ export default function Analytics() {
         columnData[columnName]["ascend"] = !columnData[columnName]["ascend"]
     }
 
+    {/*below function is to fetch data from api*/ }
     const addColumnsToAnalytics = async (tempAnalyticsData) => {
         /*below functionality is for mapping id's with app names*/
         let res = {}
@@ -138,6 +147,7 @@ export default function Analytics() {
 
     }
 
+    {/*Below function is to store all the columns and it'll be useful while we need to reorder the columns */ }
     const setColumnsData = (companyReport) => {
         let res = {}
         let colOrder = []
@@ -153,12 +163,14 @@ export default function Analytics() {
         setColumns(res)
     }
 
+    {/*Below function is to show the date format in an understandable way */ }
     const formatDate = (dateString) => {
         const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         let date = new Date(Date.parse(dateString))
         return date.getDate() + " " + month[date.getMonth()] + "," + date.getFullYear();
     }
 
+    {/*Below function is used to reorder any two columns of the table*/ }
     const reOrder = () => {
         const from = document.getElementById("from").value
         const to = document.getElementById("to").value
@@ -174,6 +186,7 @@ export default function Analytics() {
         }
     }
 
+    {/*Below function is used to filter the table data by app name */ }
     const searchByAppName = (event) => {
         const term = event.target.value.toLowerCase()
         let filteredData = []
