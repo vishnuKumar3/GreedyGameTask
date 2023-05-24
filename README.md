@@ -10,7 +10,8 @@
 	<li>Sorting</li>
 	<li>Searching</li>
 	<li>Enable/Hide a particular column</li>
-	<li>Included all the calculations like Fill rate and CTR
+	<li>Included all the calculations like Fill rate and CTR</li>
+	<li>Responsiveness</li>
 </ul>
 <h3>Home Page</h3>
 <img src="readmeFiles/Home.png">
